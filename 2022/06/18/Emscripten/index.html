@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Emscripten 安装 | ITIMETRAVELER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="WebAssembly" />
+  
+  
+  
+  
+  <meta name="description" content="Emscripten编译器，是WebAssembly开发的重要工具之一，主要是通过emcc（Emscripten Compiler Frontend）来工作的。这是个命令行工具。 WebAssembly？ 1，WebAssembly是由Google、Microsoft、Mozilla、Apple 等几家大公司合作发起的一个关于面向Web的通用二进制和文本格式的项目。WebAssembly 是除了J">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emscripten 安装">
+<meta property="og:url" content="https://rockgirls.github.io/2022/06/18/Emscripten/index.html">
+<meta property="og:site_name" content="ITIMETRAVELER">
+<meta property="og:description" content="Emscripten编译器，是WebAssembly开发的重要工具之一，主要是通过emcc（Emscripten Compiler Frontend）来工作的。这是个命令行工具。 WebAssembly？ 1，WebAssembly是由Google、Microsoft、Mozilla、Apple 等几家大公司合作发起的一个关于面向Web的通用二进制和文本格式的项目。WebAssembly 是除了J">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/487_ca0_468.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/488_dad_cb9.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/489_f93_69b.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/490_e45_ebc.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/491_336_936.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/492_f28_cdc.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/493_914_82c.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/494_7b0_a44.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/495_2ee_f6e.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/496_fbd_581.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/497_fb1_1fe.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/498_04c_a8e.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/499_158_dfd.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/500_8f4_41b.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/501_164_c64.png">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/502_540_5c3.png">
+<meta property="article:published_time" content="2022-06-18T09:09:21.000Z">
+<meta property="article:modified_time" content="2022-06-18T09:32:14.372Z">
+<meta property="article:author" content="yanan">
+<meta property="article:tag" content="WebAssembly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/487_ca0_468.png">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="ITIMETRAVELER" type="application/atom+xml">
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="ITIMETRAVELER" rel="home"> ITIMETRAVELER </a>
+            
+          </h1>
+          
+          
+          <!-- <div class="site-description">SOMEONE KNOCK AT THE DOOR.</div>--> 
+          <div class="site-description">SOMEONE KNOCK AT THE DOOR. </div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/"> <a class="" href="/">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">归档</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="categories"> <a class="" href="/categories">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="tags"> <a class="" href="/tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="about"> <a class="" href="/about">关于</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/atom.xml"> <a class="" href="/atom.xml">rss</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Emscripten" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Emscripten 安装
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/06/18/Emscripten/" class="article-date">
+	  <time datetime="2022-06-18T09:09:21.000Z" itemprop="datePublished">六月 18, 2022</time>
+	</a>
+
+       
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Emscripten编译器，是WebAssembly开发的重要工具之一，主要是通过emcc（Emscripten Compiler Frontend）来工作的。这是个命令行工具。</p>
+<p>WebAssembly？</p>
+<p>1，WebAssembly是由Google、Microsoft、Mozilla、Apple 等几家大公司合作发起的一个关于面向Web的通用二进制和文本格式的项目。WebAssembly 是除了JavaScript 以外，另一种可以在网页中运行的编程语言。</p>
+<p>2，WebAssembly（缩写WASM）是一种新的字节码格式。并且被设计为多种编程语言（如C、Rust）目标文件格式，以.wasm 为文件名后缀。WASM通过LLVM（Low Level Virtual Machine、底层虚拟机）工具链支持多种编程语言。</p>
+<p>3，WebAssembly初期目标是浏览器内应用程序的高性能执行引擎，随着WASM 在开发者社区中越来越流行，WASM 也正在从客户端迁移到服务端，成为服务端技术的新锐。</p>
+ <span id="more"></span>
+
+<p>WebAssembly 可以用C 语言或者Rust 开发，再编译成.was文件（WebAssembly文件），还可以利用TypeScript开发，再编译成.was文件。</p>
+<p>简单地说，WebAssembly 是一种可以使用非JavaScript 编程语言编写代码并且能在浏览器上运行的技术方案。</p>
+<p><strong>一）前提准备</strong></p>
+<p>python    Git</p>
+<p><strong>二）安装Emscripten 编译器(emcc)</strong></p>
+<p>1.克隆emsdk git clone <a target="_blank" rel="noopener" href="https://github.com/juj/emsdk.git">https://github.com/juj/emsdk.git</a> </p>
+<p>2.进入emsdk文件夹 cd emsdk  </p>
+<p>3.更新emsdk 这里使用是git所以运行时会提示使用”git pull” emsdk update git pull </p>
+<p>4.安装最新的emsdk 并配置全局的环境变量 emsdk install –global latest</p>
+<p>5.激活 emsdk activate latest </p>
+<p>6.应用环境变量 emsdk_env.bat</p>
+<p>1、建立安装目录在cmd中mkdir d:\WebAssemblyTest</p>
+<p>2、克隆emsdk仓库到目录在cmd中输入git clone <a target="_blank" rel="noopener" href="http://hk.javashuo.com/link?url=https://github.com/juj/emsdk.git">https://github.com/juj/emsdk.git</a>，克隆emsdk仓库，参见下图：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/487_ca0_468.png" alt="img"></p>
+<p>3、切换到emsdk文件夹更新emsdk，确保是最新版</p>
+<p>cd emsdk</p>
+<p>emsdk.bat update</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/488_dad_cb9.png" alt="img"></p>
+<p>这里使用的是git，所以运行时会提示使用”git pull”</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/489_f93_69b.png" alt="img"></p>
+<p><strong>4、安装，注意这一步比较容易出问题</strong>，请保持耐心。对这一步，建议新手先看完整，再进行实践。</p>
+<p>在cmd中运行emsdk.bat install latest</p>
+<p>经验证，这一步一般进行不下去，自动下载安装期间几乎百分百出错：</p>
+<p>Error: Downloading URL ‘…node-v12.9.1-win-x64.zip…’: &lt;urlopen error [Errno 10060] &gt;</p>
+<p>Installation failed!</p>
+<p><strong>解决办法:</strong></p>
+<p>根据提示，将上网搜索下载需要的.zip文件，放入emsdk目录中的zips目录</p>
+<p>再次运行emsdk.bat install latest</p>
+<p>我在测试时发现，在git bush中运行emsdk.py install latest，比在cmd中运行emsdk.bat install latest，建议使用git bush，下面演示就是用它。</p>
+<p>使用git bush打开git控制台窗口，参见下图：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/490_e45_ebc.png" alt="img"></p>
+<p>其中$是git bush的提示符，在提示符后输入</p>
+<p>d:/WebAssemblyTest/emsdk/emsdk.py install latest 回车（即按下Enter键）</p>
+<p>注意，其中emsdk.py必须带后缀.py 前面的路径根据你的实际情况而定。</p>
+<p>如果你已切换到d:/WebAssemblyTest/emsdk路径，命令前的路径就不需要了，可在$提示符后输入emsdk.py install latest 回车（即按下Enter键）</p>
+<p>【提示：在git bush中和在cmd中，切换到其他盘符的cd命令，不同之处：</p>
+<p>cmd中需要/d，如cd /dd:/WebAssemblyTest/emsdk</p>
+<p>git bush中不需要/d，如cd d:/WebAssemblyTest/emsdk 】</p>
+<p>在安装过程中如果<strong>下载报错</strong>提示如：</p>
+<p>Installing tool ‘java-8.152-64bit’..</p>
+<p>Error: Downloading URL ‘<a target="_blank" rel="noopener" href="https://storage.googleapis.com/webassembly/emscripten-releases-builds/deps/portable_jre_8_update_152_64bit.zip&#39;">https://storage.googleapis.com/webassembly/emscripten-releases-builds/deps/portable_jre_8_update_152_64bit.zip&#39;</a>: &lt;urlopen error [Errno 10060] &gt;</p>
+<p>Installation failed!</p>
+<p>注意其中的portable_jre_8_update_152_64bit.zip，你可到网上下载之</p>
+<p>看emsdk目录中是否有zips目录若无可手动建立，将上网搜索下载的portable_jre_8_update_152_64bit.zip放入zips目录中（不用解压）。</p>
+<p>关闭git bush，重新打开，在$提示符后再次输入</p>
+<p>d:/WebAssemblyTest/emsdk/emsdk.py install latest</p>
+<p>请耐心等待</p>
+<p>已安装好的会自动跳过，参见下图：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/491_336_936.png" alt="img"></p>
+<p>请耐心等待一段时间。<strong>每次下载报错一次就用重复一次，</strong>直至成功完成，参见下图：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/492_f28_cdc.png" alt="img"></p>
+<p>5、激活sdk包</p>
+<p>在git bush中（也可以在cmd中），输入</p>
+<p>d:/WebAssemblyTest/emsdk/emsdk.py activate latest</p>
+<p>提示：前面的路径根据你的实际情况而定。</p>
+<p>请耐心等待完成，参见下图：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/493_914_82c.png" alt="img"></p>
+<p>6、设置环境变量</p>
+<p>在cmd中，如下输入，：</p>
+<p>d:/WebAssemblyTest/emsdk/emsdk_env.bat</p>
+<p>提示：前面的路径根据你的实际情况而定。</p>
+<p>参见下图：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/494_7b0_a44.png" alt="img"></p>
+<p>提示、你可以手动配置环境变量，在系统变量path中加上（上图PATH +=后面的部分），否则每次打开cmd窗口使用emcc都要运行一次d:/WebAssemblyTest/emsdk/emsdk_env.bat</p>
+<p>7、验证</p>
+<p>emcc -v不报错就成功了，参见下图：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/495_2ee_f6e.png" alt="img"></p>
+<p>获取帮助</p>
+<p>emcc –help</p>
+<p><strong>例子</strong></p>
+<p>建立一个名为文件hello_world.c ，内容如下：</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>int main(int argc, char ** argv) {</p>
+<p> printf(“Hello World\n”);</p>
+<p>}</p>
+<p>保存到D:\WebAssemblyTest中</p>
+<p>编译命令简要格式：</p>
+<p>emcc c _file -o ou t_file</p>
+<p>其中emcc就是Emscripten编译器行命令，c_file 如test.c是我们的输入文件，使用-o选项可以指定输出文件，out_file 如test.wasm、test.js、test.html，是我们的输出文件。</p>
+<p>关于out_file 注意两点：1）out_file可以带路径。2）若为-o test.wasm，则只生成test.wasm这个文件；若为-o test.js，则生成test.js文件，还有test.wasm；若为-o test.html，则生成test.html文件，还有test.js和test.wasm。</p>
+<p>编译上面的例子</p>
+<p>在cmd中输入emcc D:\WebAssemblyTest\hello_world.c -s WASM=1 -o D:\WebAssemblyTest\hello_world.html</p>
+<p>参见下图：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/496_fbd_581.png" alt="img"></p>
+<p>编译结果是这样的：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/497_fb1_1fe.png" alt="img"></p>
+<p>注意、hello_world.html不能用浏览器直接打开，否则报错，需要先启动http服务。</p>
+<p>启动http服务命令</p>
+<p>在cmd中输入emrun –no_browser –port 8080 D:\WebAssemblyTest\hello_world.html</p>
+<p>注意后面要加参数为具体的hello_world.html文件路径，参见下图：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/498_04c_a8e.png" alt="img"></p>
+<p>然后启动edge浏览器，在地址栏输入</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/test.html">http://localhost:8080/test.html</a></p>
+<p>访问结果是这样的：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/499_158_dfd.png" alt="img"></p>
+<p>再看看浏览器控制台的输出：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/500_8f4_41b.png" alt="img"></p>
+<p><strong>再举一例</strong></p>
+<p>①建立一个名为文件test.c ，内容如下：</p>
+<p>char* toChar (char* str) {</p>
+<p>​    return str;</p>
+<p>}</p>
+<p>int add (int x, int y) {</p>
+<p> return x + y;</p>
+<p>}</p>
+<p>int square (int x) {</p>
+<p> return x * x;</p>
+<p>}</p>
+<p>保存到D:\WebAssemblyTest中</p>
+<p>②设置环境变量</p>
+<p>cmd窗口运行d:/WebAssemblyTest/emsdk/emsdk_env.bat</p>
+<p>提示：前面的路径根据你的实际情况而定。</p>
+<p>③编译上面的例子</p>
+<p>在cmd中输入</p>
+<p>emcc D:\WebAssemblyTest\test.c -Os -s WASM=1 -s SIDE_MODULE=1 -o D:\WebAssemblyTest\test.wasm</p>
+<p><strong>注意</strong>、本例和前例不同，使用了优化选项，并仅输出.wasm文件（这里是test.wasm）。</p>
+<p>④新建test.html加入调用上面产生的test.wasm：</p>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<p>  <meta charset="UTF-8"></p>
+ <title>Document</title>
+
+</head>
+
+<body>
+
+ 
+
+<script>
+
+ /**
+
+  \* @param {String} path wasm 文件路径
+
+  \* @param {Object} imports 传递到wasm 代码中的变量
+
+  */
+
+ function loadWebAssembly (path, imports = {}) {
+
+  return fetch(path) // 加载文件
+
+​      .then(response => response.arrayBuffer()) // 转成ArrayBuffer
+
+​      .then(buffer => WebAssembly.compile(buffer))
+
+​      .then(module => {
+
+​       imports.env = imports.env || {}
+
+ 
+
+​       // 开辟内存空间
+
+​       imports.env.memoryBase = imports.env.memoryBase || 0
+
+​       if (!imports.env.memory) {
+
+​        imports.env.memory = new WebAssembly.Memory({ initial: 256 })
+
+​       }
+
+ 
+
+​       // 创建变量映射表
+
+​       imports.env.tableBase = imports.env.tableBase || 0
+
+​       if (!imports.env.table) {
+
+​        // 在MVP 版本中element 只能是"anyfunc"
+
+​        imports.env.table = new WebAssembly.Table({ initial: 0, element: 'anyfunc' })
+
+​       }
+
+ 
+
+​       // 创建WebAssembly 实例
+
+​       return new WebAssembly.Instance(module, imports)
+
+​      })
+
+ }
+
+ // 加载wasm文件
+
+ loadWebAssembly('test.wasm')
+
+​     .then(instance => {
+
+​      //调用c里面的方法
+
+​      const toChar = instance.exports.toChar
+
+​      const add = instance.exports.add
+
+​      const square = instance.exports.square
+
+​      
+
+​      console.log('return: ', toChar("12352324"))
+
+​      console.log('10 + 20 =', add(10, 20))
+
+​      console.log('3*3 =', square(3))
+
+​      console.log('(2 + 5)*2 =', square(add(2 + 5)))
+
+​     })
+
+ 
+
+</script>
+
+</body>
+
+</html>
+
+ 
+
+<p><strong>注意</strong>，将test.html放在test.wasm所在目录中。不要用浏览器直接打开test.html，要按下面的介绍进行。</p>
+<p>⑤启动http服务</p>
+<p>emrun –no_browser –port 8080 D:\WebAssemblyTest\test.html</p>
+<p>参见下图：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/501_164_c64.png" alt="img"></p>
+<p>⑥然后启动edge浏览器，在地址栏输入</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/test.html">http://localhost:8080/test.html</a></p>
+<p>访问结果是这样的：</p>
+<p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/502_540_5c3.png" alt="img"></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebAssembly/" rel="tag">WebAssembly</a></li></ul>
+
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2022/06/18/Emscripten/" data-title="Emscripten 安装" data-url="https://rockgirls.github.io/2022/06/18/Emscripten/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"iTimeTraveler"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+	
+<link rel="stylesheet" href="/css/comment.css">
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/06/18/0618/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          0618
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/17/redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Redis</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav">无</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/atom.xml" class="mobile-nav-link">rss</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2022 ITIMETRAVELER All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+         <a href="" target="_blank"></a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

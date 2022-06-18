@@ -111,6 +111,110 @@
         
           <section id="main">
   
+    <article id="post-0618"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/06/18/0618/">0618</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/06/18/0618/" class="article-date">
+	  <time datetime="2022-06-18T09:29:20.000Z" itemprop="datePublished">六月 18, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://i.pinimg.com/564x/07/69/49/0769491cb7d01744e28092fd3a96a668.jpg" alt="img"></p>
+<p>每日一句：</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/daily/" rel="tag">daily</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Emscripten"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/06/18/Emscripten/">Emscripten 安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/06/18/Emscripten/" class="article-date">
+	  <time datetime="2022-06-18T09:09:21.000Z" itemprop="datePublished">六月 18, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+
+          
+          <div class="entry-summary">
+          Emscripten编译器，是WebAssembly开发的重要工具之一，主要是通过emcc（Emscripten Compiler Frontend）来工作的。这是个命令行工具。
+WebAssembly？
+1，WebAssembly是由Google、Microsoft、Mozilla、Apple 等几家大公司合作发起的一个关于面向Web的通用二进制和文本格式的项目。WebAssembly 是除了JavaScript 以外，另一种可以在网页中运行的编程语言。
+2，WebAssembly（缩写WASM）是一种新的字节码格式。并且被设计为多种编程语言（如C、Rust）目标文件格式，以.wasm 为文件名后缀。WASM通过LLVM（Low Level Virtual Machine、底层虚拟机）工具链支持多种编程语言。
+3，WebAssembly初期目标是浏览器内应用程序的高性能执行引擎，随着WASM 在开发者社区中越来越流行，WASM 也正在从客户端迁移到服务端，成为服务端技术的新锐。
+
+        
+          <p class="article-more-link">
+            <a href="/2022/06/18/Emscripten/#more">阅读全文</a>
+          </p>
+        </div>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebAssembly/" rel="tag">WebAssembly</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-redis"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -136,27 +240,19 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>非关系型数据库，基于C语言编写，key-value 只有一个字典，没有表，使用键值对的形式管理</p>
-<p>字符串、列表、集合、有序集合、哈希（两个key value)，数据不存在数据库，直接放在内存里</p>
-<p>新启动服务器和客户端</p>
-<p>redis-server 和 conf       redis-cil</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+        
 
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> runoobkey <span class="comment">redis</span></span><br></pre></td></tr></table></figure>
+          
+          <div class="entry-summary">
+          非关系型数据库，基于C语言编写，key-value 只有一个字典，没有表，使用键值对的形式管理
+字符串、列表、集合、有序集合、哈希（两个key value)，数据不存在数据库，直接放在内存里
+新启动服务器和客户端
 
-<p>shutdown</p>
-<p>spring boot 整合redis  spring data resdis    整合redis</p>
-<p>1、引入依赖</p>
-<p>2、创建实体类，实现序列化接口，否则无法存入数据库</p>
-<p>3、redisTemplate</p>
-<p>4、配置application.yam   数据库database:0    host:localhost     port:6379</p>
-<p>5、创建启动类 application</p>
-<p>6、序列化 查询keys  *student 自动加的序列化操作   存入时序列化，出来时反序列化</p>
-<p>postman</p>
-<p>spring boot操作五种类型</p>
-<p>list是倒着往里面装后进先出</p>
-<p>哈希是由两对的</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2022/06/17/redis/#more">阅读全文</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -634,6 +730,30 @@ More info: Writing
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2022/06/18/0618/">0618</a></h6>
+              <span>六月 18, 2022</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2022/06/18/Emscripten/">Emscripten 安装</a></h6>
+              <span>六月 18, 2022</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2022/06/17/redis/">Redis</a></h6>
               <span>六月 17, 2022</span>
             </div>
@@ -676,30 +796,6 @@ More info: Writing
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2022/06/16/readme-1/">Readme</a></h6>
-              <span>六月 16, 2022</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2022/06/16/My-New-Post/">My New Post</a></h6>
-              <span>六月 16, 2022</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -712,7 +808,7 @@ More info: Writing
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/daily/" rel="tag">daily</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/date/" rel="tag">date</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebAssembly/" rel="tag">WebAssembly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/daily/" rel="tag">daily</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/date/" rel="tag">date</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -722,7 +818,7 @@ More info: Writing
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/daily/" style="font-size: 10px;">daily</a> <a href="/tags/date/" style="font-size: 10px;">date</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a>
+      <a href="/tags/WebAssembly/" style="font-size: 10px;">WebAssembly</a> <a href="/tags/daily/" style="font-size: 20px;">daily</a> <a href="/tags/date/" style="font-size: 10px;">date</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a>
     </div>
   </div>
 
@@ -732,7 +828,7 @@ More info: Writing
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">7</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 

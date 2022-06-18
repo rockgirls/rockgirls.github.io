@@ -6,7 +6,7 @@
   <link href="https://rockgirls.github.io/atom.xml" rel="self"/>
   
   <link href="https://rockgirls.github.io/"/>
-  <updated>2022-06-18T09:02:38.222Z</updated>
+  <updated>2022-06-18T09:31:23.165Z</updated>
   <id>https://rockgirls.github.io/</id>
   
   <author>
@@ -17,22 +17,65 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>0618</title>
+    <link href="https://rockgirls.github.io/2022/06/18/0618/"/>
+    <id>https://rockgirls.github.io/2022/06/18/0618/</id>
+    <published>2022-06-18T09:29:20.000Z</published>
+    <updated>2022-06-18T09:31:23.165Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://i.pinimg.com/564x/07/69/49/0769491cb7d01744e28092fd3a96a668.jpg" alt="img"></p><p>每日一句：</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.pinimg.com/564x/07/69/49/0769491cb7d01744e28092fd3a96a668.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;每日一句：&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="daily" scheme="https://rockgirls.github.io/tags/daily/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Emscripten 安装</title>
+    <link href="https://rockgirls.github.io/2022/06/18/Emscripten/"/>
+    <id>https://rockgirls.github.io/2022/06/18/Emscripten/</id>
+    <published>2022-06-18T09:09:21.000Z</published>
+    <updated>2022-06-18T09:32:14.372Z</updated>
+    
+    <content type="html"><![CDATA[<p>Emscripten编译器，是WebAssembly开发的重要工具之一，主要是通过emcc（Emscripten Compiler Frontend）来工作的。这是个命令行工具。</p><p>WebAssembly？</p><p>1，WebAssembly是由Google、Microsoft、Mozilla、Apple 等几家大公司合作发起的一个关于面向Web的通用二进制和文本格式的项目。WebAssembly 是除了JavaScript 以外，另一种可以在网页中运行的编程语言。</p><p>2，WebAssembly（缩写WASM）是一种新的字节码格式。并且被设计为多种编程语言（如C、Rust）目标文件格式，以.wasm 为文件名后缀。WASM通过LLVM（Low Level Virtual Machine、底层虚拟机）工具链支持多种编程语言。</p><p>3，WebAssembly初期目标是浏览器内应用程序的高性能执行引擎，随着WASM 在开发者社区中越来越流行，WASM 也正在从客户端迁移到服务端，成为服务端技术的新锐。</p> <span id="more"></span><p>WebAssembly 可以用C 语言或者Rust 开发，再编译成.was文件（WebAssembly文件），还可以利用TypeScript开发，再编译成.was文件。</p><p>简单地说，WebAssembly 是一种可以使用非JavaScript 编程语言编写代码并且能在浏览器上运行的技术方案。</p><p><strong>一）前提准备</strong></p><p>python    Git</p><p><strong>二）安装Emscripten 编译器(emcc)</strong></p><p>1.克隆emsdk git clone <a href="https://github.com/juj/emsdk.git">https://github.com/juj/emsdk.git</a> </p><p>2.进入emsdk文件夹 cd emsdk  </p><p>3.更新emsdk 这里使用是git所以运行时会提示使用”git pull” emsdk update git pull </p><p>4.安装最新的emsdk 并配置全局的环境变量 emsdk install –global latest</p><p>5.激活 emsdk activate latest </p><p>6.应用环境变量 emsdk_env.bat</p><p>1、建立安装目录在cmd中mkdir d:\WebAssemblyTest</p><p>2、克隆emsdk仓库到目录在cmd中输入git clone <a href="http://hk.javashuo.com/link?url=https://github.com/juj/emsdk.git">https://github.com/juj/emsdk.git</a>，克隆emsdk仓库，参见下图：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/487_ca0_468.png" alt="img"></p><p>3、切换到emsdk文件夹更新emsdk，确保是最新版</p><p>cd emsdk</p><p>emsdk.bat update</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/488_dad_cb9.png" alt="img"></p><p>这里使用的是git，所以运行时会提示使用”git pull”</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/489_f93_69b.png" alt="img"></p><p><strong>4、安装，注意这一步比较容易出问题</strong>，请保持耐心。对这一步，建议新手先看完整，再进行实践。</p><p>在cmd中运行emsdk.bat install latest</p><p>经验证，这一步一般进行不下去，自动下载安装期间几乎百分百出错：</p><p>Error: Downloading URL ‘…node-v12.9.1-win-x64.zip…’: &lt;urlopen error [Errno 10060] &gt;</p><p>Installation failed!</p><p><strong>解决办法:</strong></p><p>根据提示，将上网搜索下载需要的.zip文件，放入emsdk目录中的zips目录</p><p>再次运行emsdk.bat install latest</p><p>我在测试时发现，在git bush中运行emsdk.py install latest，比在cmd中运行emsdk.bat install latest，建议使用git bush，下面演示就是用它。</p><p>使用git bush打开git控制台窗口，参见下图：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/490_e45_ebc.png" alt="img"></p><p>其中$是git bush的提示符，在提示符后输入</p><p>d:/WebAssemblyTest/emsdk/emsdk.py install latest 回车（即按下Enter键）</p><p>注意，其中emsdk.py必须带后缀.py 前面的路径根据你的实际情况而定。</p><p>如果你已切换到d:/WebAssemblyTest/emsdk路径，命令前的路径就不需要了，可在$提示符后输入emsdk.py install latest 回车（即按下Enter键）</p><p>【提示：在git bush中和在cmd中，切换到其他盘符的cd命令，不同之处：</p><p>cmd中需要/d，如cd /dd:/WebAssemblyTest/emsdk</p><p>git bush中不需要/d，如cd d:/WebAssemblyTest/emsdk 】</p><p>在安装过程中如果<strong>下载报错</strong>提示如：</p><p>Installing tool ‘java-8.152-64bit’..</p><p>Error: Downloading URL ‘<a href="https://storage.googleapis.com/webassembly/emscripten-releases-builds/deps/portable_jre_8_update_152_64bit.zip&#39;">https://storage.googleapis.com/webassembly/emscripten-releases-builds/deps/portable_jre_8_update_152_64bit.zip&#39;</a>: &lt;urlopen error [Errno 10060] &gt;</p><p>Installation failed!</p><p>注意其中的portable_jre_8_update_152_64bit.zip，你可到网上下载之</p><p>看emsdk目录中是否有zips目录若无可手动建立，将上网搜索下载的portable_jre_8_update_152_64bit.zip放入zips目录中（不用解压）。</p><p>关闭git bush，重新打开，在$提示符后再次输入</p><p>d:/WebAssemblyTest/emsdk/emsdk.py install latest</p><p>请耐心等待</p><p>已安装好的会自动跳过，参见下图：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/491_336_936.png" alt="img"></p><p>请耐心等待一段时间。<strong>每次下载报错一次就用重复一次，</strong>直至成功完成，参见下图：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/492_f28_cdc.png" alt="img"></p><p>5、激活sdk包</p><p>在git bush中（也可以在cmd中），输入</p><p>d:/WebAssemblyTest/emsdk/emsdk.py activate latest</p><p>提示：前面的路径根据你的实际情况而定。</p><p>请耐心等待完成，参见下图：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/493_914_82c.png" alt="img"></p><p>6、设置环境变量</p><p>在cmd中，如下输入，：</p><p>d:/WebAssemblyTest/emsdk/emsdk_env.bat</p><p>提示：前面的路径根据你的实际情况而定。</p><p>参见下图：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/494_7b0_a44.png" alt="img"></p><p>提示、你可以手动配置环境变量，在系统变量path中加上（上图PATH +=后面的部分），否则每次打开cmd窗口使用emcc都要运行一次d:/WebAssemblyTest/emsdk/emsdk_env.bat</p><p>7、验证</p><p>emcc -v不报错就成功了，参见下图：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/495_2ee_f6e.png" alt="img"></p><p>获取帮助</p><p>emcc –help</p><p><strong>例子</strong></p><p>建立一个名为文件hello_world.c ，内容如下：</p><p>#include &lt;stdio.h&gt;</p><p>int main(int argc, char ** argv) {</p><p> printf(“Hello World\n”);</p><p>}</p><p>保存到D:\WebAssemblyTest中</p><p>编译命令简要格式：</p><p>emcc c _file -o ou t_file</p><p>其中emcc就是Emscripten编译器行命令，c_file 如test.c是我们的输入文件，使用-o选项可以指定输出文件，out_file 如test.wasm、test.js、test.html，是我们的输出文件。</p><p>关于out_file 注意两点：1）out_file可以带路径。2）若为-o test.wasm，则只生成test.wasm这个文件；若为-o test.js，则生成test.js文件，还有test.wasm；若为-o test.html，则生成test.html文件，还有test.js和test.wasm。</p><p>编译上面的例子</p><p>在cmd中输入emcc D:\WebAssemblyTest\hello_world.c -s WASM=1 -o D:\WebAssemblyTest\hello_world.html</p><p>参见下图：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/496_fbd_581.png" alt="img"></p><p>编译结果是这样的：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/497_fb1_1fe.png" alt="img"></p><p>注意、hello_world.html不能用浏览器直接打开，否则报错，需要先启动http服务。</p><p>启动http服务命令</p><p>在cmd中输入emrun –no_browser –port 8080 D:\WebAssemblyTest\hello_world.html</p><p>注意后面要加参数为具体的hello_world.html文件路径，参见下图：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/498_04c_a8e.png" alt="img"></p><p>然后启动edge浏览器，在地址栏输入</p><p><a href="http://localhost:8080/test.html">http://localhost:8080/test.html</a></p><p>访问结果是这样的：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/499_158_dfd.png" alt="img"></p><p>再看看浏览器控制台的输出：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/500_8f4_41b.png" alt="img"></p><p><strong>再举一例</strong></p><p>①建立一个名为文件test.c ，内容如下：</p><p>char* toChar (char* str) {</p><p>​    return str;</p><p>}</p><p>int add (int x, int y) {</p><p> return x + y;</p><p>}</p><p>int square (int x) {</p><p> return x * x;</p><p>}</p><p>保存到D:\WebAssemblyTest中</p><p>②设置环境变量</p><p>cmd窗口运行d:/WebAssemblyTest/emsdk/emsdk_env.bat</p><p>提示：前面的路径根据你的实际情况而定。</p><p>③编译上面的例子</p><p>在cmd中输入</p><p>emcc D:\WebAssemblyTest\test.c -Os -s WASM=1 -s SIDE_MODULE=1 -o D:\WebAssemblyTest\test.wasm</p><p><strong>注意</strong>、本例和前例不同，使用了优化选项，并仅输出.wasm文件（这里是test.wasm）。</p><p>④新建test.html加入调用上面产生的test.wasm：</p><!DOCTYPE html><html lang="en"><head><p>  <meta charset="UTF-8"></p> <title>Document</title></head><body> <script> /**  \* @param {String} path wasm 文件路径  \* @param {Object} imports 传递到wasm 代码中的变量  */ function loadWebAssembly (path, imports = {}) {  return fetch(path) // 加载文件​      .then(response => response.arrayBuffer()) // 转成ArrayBuffer​      .then(buffer => WebAssembly.compile(buffer))​      .then(module => {​       imports.env = imports.env || {} ​       // 开辟内存空间​       imports.env.memoryBase = imports.env.memoryBase || 0​       if (!imports.env.memory) {​        imports.env.memory = new WebAssembly.Memory({ initial: 256 })​       } ​       // 创建变量映射表​       imports.env.tableBase = imports.env.tableBase || 0​       if (!imports.env.table) {​        // 在MVP 版本中element 只能是"anyfunc"​        imports.env.table = new WebAssembly.Table({ initial: 0, element: 'anyfunc' })​       } ​       // 创建WebAssembly 实例​       return new WebAssembly.Instance(module, imports)​      }) } // 加载wasm文件 loadWebAssembly('test.wasm')​     .then(instance => {​      //调用c里面的方法​      const toChar = instance.exports.toChar​      const add = instance.exports.add​      const square = instance.exports.square​      ​      console.log('return: ', toChar("12352324"))​      console.log('10 + 20 =', add(10, 20))​      console.log('3*3 =', square(3))​      console.log('(2 + 5)*2 =', square(add(2 + 5)))​     }) </script></body></html> <p><strong>注意</strong>，将test.html放在test.wasm所在目录中。不要用浏览器直接打开test.html，要按下面的介绍进行。</p><p>⑤启动http服务</p><p>emrun –no_browser –port 8080 D:\WebAssemblyTest\test.html</p><p>参见下图：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/501_164_c64.png" alt="img"></p><p>⑥然后启动edge浏览器，在地址栏输入</p><p><a href="http://localhost:8080/test.html">http://localhost:8080/test.html</a></p><p>访问结果是这样的：</p><p><img src="https://ewr1.vultrobjects.com/imgur2/000/007/853/502_540_5c3.png" alt="img"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Emscripten编译器，是WebAssembly开发的重要工具之一，主要是通过emcc（Emscripten Compiler Frontend）来工作的。这是个命令行工具。&lt;/p&gt;
+&lt;p&gt;WebAssembly？&lt;/p&gt;
+&lt;p&gt;1，WebAssembly是由Google、Microsoft、Mozilla、Apple 等几家大公司合作发起的一个关于面向Web的通用二进制和文本格式的项目。WebAssembly 是除了JavaScript 以外，另一种可以在网页中运行的编程语言。&lt;/p&gt;
+&lt;p&gt;2，WebAssembly（缩写WASM）是一种新的字节码格式。并且被设计为多种编程语言（如C、Rust）目标文件格式，以.wasm 为文件名后缀。WASM通过LLVM（Low Level Virtual Machine、底层虚拟机）工具链支持多种编程语言。&lt;/p&gt;
+&lt;p&gt;3，WebAssembly初期目标是浏览器内应用程序的高性能执行引擎，随着WASM 在开发者社区中越来越流行，WASM 也正在从客户端迁移到服务端，成为服务端技术的新锐。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="WebAssembly" scheme="https://rockgirls.github.io/tags/WebAssembly/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Redis</title>
     <link href="https://rockgirls.github.io/2022/06/17/redis/"/>
     <id>https://rockgirls.github.io/2022/06/17/redis/</id>
     <published>2022-06-17T02:11:11.000Z</published>
-    <updated>2022-06-18T09:02:38.222Z</updated>
+    <updated>2022-06-18T09:31:54.313Z</updated>
     
-    <content type="html"><![CDATA[<p>非关系型数据库，基于C语言编写，key-value 只有一个字典，没有表，使用键值对的形式管理</p><p>字符串、列表、集合、有序集合、哈希（两个key value)，数据不存在数据库，直接放在内存里</p><p>新启动服务器和客户端</p><p>redis-server 和 conf       redis-cil</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> runoobkey <span class="comment">redis</span></span><br></pre></td></tr></table></figure><p>shutdown</p><p>spring boot 整合redis  spring data resdis    整合redis</p><p>1、引入依赖</p><p>2、创建实体类，实现序列化接口，否则无法存入数据库</p><p>3、redisTemplate</p><p>4、配置application.yam   数据库database:0    host:localhost     port:6379</p><p>5、创建启动类 application</p><p>6、序列化 查询keys  *student 自动加的序列化操作   存入时序列化，出来时反序列化</p><p>postman</p><p>spring boot操作五种类型</p><p>list是倒着往里面装后进先出</p><p>哈希是由两对的</p>]]></content>
+    <content type="html"><![CDATA[<p>非关系型数据库，基于C语言编写，key-value 只有一个字典，没有表，使用键值对的形式管理</p><p>字符串、列表、集合、有序集合、哈希（两个key value)，数据不存在数据库，直接放在内存里</p><p>新启动服务器和客户端</p><span id="more"></span><p>redis-server 和 conf       redis-cil</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> runoobkey <span class="comment">redis</span></span><br></pre></td></tr></table></figure><p>shutdown</p><p>spring boot 整合redis  spring data resdis    整合redis</p><p>1、引入依赖</p><p>2、创建实体类，实现序列化接口，否则无法存入数据库</p><p>3、redisTemplate</p><p>4、配置application.yam   数据库database:0    host:localhost     port:6379</p><p>5、创建启动类 application</p><p>6、序列化 查询keys  *student 自动加的序列化操作   存入时序列化，出来时反序列化</p><p>postman</p><p>spring boot操作五种类型</p><p>list是倒着往里面装后进先出</p><p>哈希是由两对的</p>]]></content>
     
     
-      
-      
     <summary type="html">&lt;p&gt;非关系型数据库，基于C语言编写，key-value 只有一个字典，没有表，使用键值对的形式管理&lt;/p&gt;
 &lt;p&gt;字符串、列表、集合、有序集合、哈希（两个key value)，数据不存在数据库，直接放在内存里&lt;/p&gt;
-&lt;p&gt;新启动服务器和客户端&lt;/p&gt;
-&lt;p&gt;redis-ser</summary>
-      
+&lt;p&gt;新启动服务器和客户端&lt;/p&gt;</summary>
     
     
     
