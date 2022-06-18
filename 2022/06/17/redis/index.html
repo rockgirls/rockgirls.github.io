@@ -11,15 +11,15 @@
   
   
   
-  <meta name="description" content="SOMEONE KNOCK AT THE DOOR.">
+  <meta name="description" content="非关系型数据库，基于C语言编写，key-value 只有一个字典，没有表，使用键值对的形式管理 字符串、列表、集合、有序集合、哈希（两个key value)，数据不存在数据库，直接放在内存里 新启动服务器和客户端 redis-server 和 conf       redis-cil 1redis-cli  1SET runoobkey redis  shutdown spring boot 整合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis">
 <meta property="og:url" content="https://rockgirls.github.io/2022/06/17/redis/index.html">
 <meta property="og:site_name" content="ITIMETRAVELER">
-<meta property="og:description" content="SOMEONE KNOCK AT THE DOOR.">
+<meta property="og:description" content="非关系型数据库，基于C语言编写，key-value 只有一个字典，没有表，使用键值对的形式管理 字符串、列表、集合、有序集合、哈希（两个key value)，数据不存在数据库，直接放在内存里 新启动服务器和客户端 redis-server 和 conf       redis-cil 1redis-cli  1SET runoobkey redis  shutdown spring boot 整合">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-17T02:11:11.000Z">
-<meta property="article:modified_time" content="2022-06-17T02:15:53.999Z">
+<meta property="article:modified_time" content="2022-06-18T09:02:38.222Z">
 <meta property="article:author" content="yanan">
 <meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
@@ -142,7 +142,27 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>非关系型数据库，基于C语言编写，key-value 只有一个字典，没有表，使用键值对的形式管理</p>
+<p>字符串、列表、集合、有序集合、哈希（两个key value)，数据不存在数据库，直接放在内存里</p>
+<p>新启动服务器和客户端</p>
+<p>redis-server 和 conf       redis-cil</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> runoobkey <span class="comment">redis</span></span><br></pre></td></tr></table></figure>
+
+<p>shutdown</p>
+<p>spring boot 整合redis  spring data resdis    整合redis</p>
+<p>1、引入依赖</p>
+<p>2、创建实体类，实现序列化接口，否则无法存入数据库</p>
+<p>3、redisTemplate</p>
+<p>4、配置application.yam   数据库database:0    host:localhost     port:6379</p>
+<p>5、创建启动类 application</p>
+<p>6、序列化 查询keys  *student 自动加的序列化操作   存入时序列化，出来时反序列化</p>
+<p>postman</p>
+<p>spring boot操作五种类型</p>
+<p>list是倒着往里面装后进先出</p>
+<p>哈希是由两对的</p>
+
       
     </div>
     <footer class="entry-meta entry-footer">
