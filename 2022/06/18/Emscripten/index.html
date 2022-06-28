@@ -11,12 +11,12 @@
   
   
   
-  <meta name="description" content="Emscripten编译器，是WebAssembly开发的重要工具之一，主要是通过emcc（Emscripten Compiler Frontend）来工作的。这是个命令行工具。 WebAssembly？ 1，WebAssembly是由Google、Microsoft、Mozilla、Apple 等几家大公司合作发起的一个关于面向Web的通用二进制和文本格式的项目。WebAssembly 是除了J">
+  <meta name="description" content="Emscripten编译器，是WebAssembly开发的重要工具之一，主要是通过emcc（Emscripten Compiler Frontend）来工作的。这是个命令行工具。 1、 #include &lt;stdio.h&gt; int main(){ printf(“Hello World\n”); } 2、 emcc w.c -s WASM&#x3D;1 -o w.html 3、 emrun –n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Emscripten 安装">
 <meta property="og:url" content="https://rockgirls.github.io/2022/06/18/Emscripten/index.html">
 <meta property="og:site_name" content="ITIMETRAVELER">
-<meta property="og:description" content="Emscripten编译器，是WebAssembly开发的重要工具之一，主要是通过emcc（Emscripten Compiler Frontend）来工作的。这是个命令行工具。 WebAssembly？ 1，WebAssembly是由Google、Microsoft、Mozilla、Apple 等几家大公司合作发起的一个关于面向Web的通用二进制和文本格式的项目。WebAssembly 是除了J">
+<meta property="og:description" content="Emscripten编译器，是WebAssembly开发的重要工具之一，主要是通过emcc（Emscripten Compiler Frontend）来工作的。这是个命令行工具。 1、 #include &lt;stdio.h&gt; int main(){ printf(“Hello World\n”); } 2、 emcc w.c -s WASM&#x3D;1 -o w.html 3、 emrun –n">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/487_ca0_468.png">
 <meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/488_dad_cb9.png">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/501_164_c64.png">
 <meta property="og:image" content="https://ewr1.vultrobjects.com/imgur2/000/007/853/502_540_5c3.png">
 <meta property="article:published_time" content="2022-06-18T09:09:21.000Z">
-<meta property="article:modified_time" content="2022-06-18T09:32:14.372Z">
+<meta property="article:modified_time" content="2022-06-28T09:03:42.529Z">
 <meta property="article:author" content="yanan">
 <meta property="article:tag" content="WebAssembly">
 <meta name="twitter:card" content="summary">
@@ -160,6 +160,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Emscripten编译器，是WebAssembly开发的重要工具之一，主要是通过emcc（Emscripten Compiler Frontend）来工作的。这是个命令行工具。</p>
+<p>1、</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>int main(){</p>
+<p>printf(“Hello World\n”);</p>
+<p>}</p>
+<p>2、</p>
+<p>emcc w.c -s WASM=1 -o w.html</p>
+<p>3、</p>
+<p>emrun –no_browser –port 8070 w.html</p>
+<p>4、</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8070/w.html">http://localhost:8070/w.html</a></p>
 <p>WebAssembly？</p>
 <p>1，WebAssembly是由Google、Microsoft、Mozilla、Apple 等几家大公司合作发起的一个关于面向Web的通用二进制和文本格式的项目。WebAssembly 是除了JavaScript 以外，另一种可以在网页中运行的编程语言。</p>
 <p>2，WebAssembly（缩写WASM）是一种新的字节码格式。并且被设计为多种编程语言（如C、Rust）目标文件格式，以.wasm 为文件名后缀。WASM通过LLVM（Low Level Virtual Machine、底层虚拟机）工具链支持多种编程语言。</p>
